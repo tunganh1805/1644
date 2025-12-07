@@ -1,0 +1,27 @@
+.gundam-logo {
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s;
+  display: block;
+}
+
+.gundam-logo:hover {
+  transform: scale(1.05);
+}
+
+.gundam-logo-small {
+  width: 40px;
+  height: 40px;
+}
+
+.gundam-logo-medium {
+  width: 80px;
+  height: 80px;
+}
+
+.gundam-logo-large {
+  width: 120px;
+  height: 120px;
+}
+
