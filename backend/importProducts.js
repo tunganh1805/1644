@@ -4,9 +4,7 @@ const Product = require('./models/Product');
 
 const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/webapp';
 
-// Tất cả sample products từ code
 const sampleProducts = [
-  // Gundam products
   {
     name: 'HG 1/144 GAIA\'S/ORTEGA\'S RICK DOM(GQ)',
     price: 850000,
