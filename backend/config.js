@@ -1,22 +1,23 @@
 const mongoose = require('mongoose');
 require('dotenv').config();
 
-// MongoDB Atlas connection string
-// Format: mongodb+srv://<username>:<password>@cluster0.7zkzf.mongodb.net/<database>?retryWrites=true&w=majority&appName=Cluster0
 const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/webapp';
 
 const connectDB = () => {
   console.log('Attempting to connect to MongoDB Atlas...');
-  console.log('MongoDB URI:', MONGODB_URI.replace(/\/\/([^:]+):([^@]+)@/, '//$1:***@')); // Hide password
+  console.log('MongoDB URI:', MONGODB_URI.replace(/\/\/([^:]+):([^@]+)@/, '//$1:***@')); 
+  
+  // Set strict query mode
+  mongoose.set('strictQuery', true);
   
   mongoose.connect(MONGODB_URI, {
-    serverSelectionTimeoutMS: 10000, // 10 seconds timeout
-    socketTimeoutMS: 45000, // 45 seconds socket timeout
+    serverSelectionTimeoutMS: 10000, 
+    socketTimeoutMS: 45000, 
     retryWrites: true,
     w: 'majority'
   })
   .then(() => {
-    console.log('MongoDB connected successfully');
+    console.log('Connect DB successfully');
     console.log('Database:', mongoose.connection.db.databaseName);
     console.log('Host:', mongoose.connection.host);
     console.log('Cluster:', mongoose.connection.host.includes('cluster0') ? 'Cluster0' : 'Unknown');
